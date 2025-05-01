@@ -4,7 +4,7 @@ from fastapi import Depends
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 
-engine = create_engine("sqlite:///local.db")
+engine = create_engine("postgresql://pguser:pgpassword@db:5432/postgres")
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 

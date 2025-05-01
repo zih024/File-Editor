@@ -1,14 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 
 
-export const BACKEND_URL = "http://127.0.0.1:8000"
+export const BACKEND_URL = "http://backend:8000"
 
 
 type BackendRequestOptions = {
   path: string;
   method?: string;
   requiresAuth?: boolean;
-  body?: any;
+  body?: Record<string, unknown>;
   additionalHeaders?: Record<string, string>;
 };
 
