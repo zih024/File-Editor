@@ -1,15 +1,15 @@
 from fastapi import FastAPI
 from .routers import auth
-from .database import init_db
+from .routers import users
+from .routers import files
 
 app = FastAPI()
 
-@app.on_event('startup')
-async def startup_db_client():
-    init_db()
 
 @app.get("/")
 async def health_check():
     return "ok"
 
 app.include_router(auth.router)
+app.include_router(users.router)
+app.include_router(files.router)
