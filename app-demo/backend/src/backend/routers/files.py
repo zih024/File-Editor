@@ -1,10 +1,10 @@
 import os
 from typing import Annotated
-from fastapi import APIRouter, Depends, File, HTTPException, UploadFile, status
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, status
 import uuid
 
 from fastapi.responses import FileResponse
-from backend.models import User
+from backend.models import File, User
 from backend.routers.auth import get_current_user
 from backend.database import db_dependency
 from pydantic import BaseModel
