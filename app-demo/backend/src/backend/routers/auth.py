@@ -29,7 +29,7 @@ class TokenData(BaseModel):
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/token")
 
 router = APIRouter(prefix="/auth", tags=["auth"])
 
@@ -81,7 +81,7 @@ async def get_current_user(
         if username is None:
             raise credentials_exception
         token_data = TokenData(username=username)
-    except jwt.InvalidTokenError:
+    except InvalidTokenError:
         raise credentials_exception
     user = get_user(db, username=token_data.username)
     if user is None:
