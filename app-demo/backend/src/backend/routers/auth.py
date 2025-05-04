@@ -10,6 +10,7 @@ from pydantic import BaseModel
 from sqlalchemy.exc import IntegrityError
 from backend.database import db_dependency
 from backend.models import User
+from jwt.exceptions import InvalidTokenError
 
 # to get a string like this run:
 # openssl rand -hex 32
