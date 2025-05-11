@@ -34,7 +34,6 @@ export default function Chat() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const reconnectTimeoutRef = useRef<NodeJS.Timeout>(null);
 
-//   set up websocket connection
   const connectWebSocket = useCallback(() => {
     const ws = new WebSocket(`${BACKEND_PUBLIC_WS_URL}/ws/chat`);
 
